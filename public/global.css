@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+img {
+    width: 100%;
+}
+
+body {
+    background: url(./img/halftone.png);
+    font-family: 'Karla', sans-serif;
+}
+
+#todoButton {
+    background: #CEFF1A;
+}
+
+#category-item,
+#dueDate-item {
+    background: #CEFF1A;
+    color: black;
+    padding: 7px;
+}
+
+#dueDate-item {
+    background: #EDC9FF;
+    color: black;
+    padding: 5px;
+}

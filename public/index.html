@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>To Do's</title>
+    <title>TODO</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="text/javascript" src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,fetch,Array.prototype.includes"></script>
@@ -12,7 +12,9 @@
 <body>
     <div class="container">
     <div class="row">
-        <h1 class="text-center">DO:</h1>
+        <div class="col-sm header">
+        <h1 class="text-center">T O D O:</h1>
+        </div>
         <hr />
 
         <div class="form-group">
@@ -38,13 +40,13 @@
         </div>
         <div class="col-sm-3">
             <label for="dueDate">Due:</label>
-            <input id="dueDate" type="text" class="form-control">
+            <input id="dueDate" type="text" class="form-control" placeholder="MM/DD/YYYY">
         </div>
         </div>        
         <ul id="todos" class="list-group">
 
         </ul>
-   
+
     </div>
     <script src="js/todos.js"></script>
 </body>

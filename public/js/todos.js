@@ -34,7 +34,6 @@ function handleClickOnCheckbox(e) {
 }
 
 function toggleTodoComplete(todoId, isComplete) {
-
     if (isComplete) {
         fetch('/api/v1/todos/' + todoId + '/complete')
     }
@@ -92,6 +91,7 @@ function loopTodos(todos) {
 }
 
 function showTodo(todo) {
+    //var categoryColor = document.querySelector('#category-item')
     var todoTemplate = `<li class="list-group-item">
         <input type="checkbox" data-id="${todo.id}" />
         ${todo.todo}
@@ -100,4 +100,6 @@ function showTodo(todo) {
        
     </li>`
     todosContainer.innerHTML = todoTemplate + todosContainer.innerHTML
+
+    //categoryColor.innerText === 'Mission Control'.classList.add('label-default')
 }

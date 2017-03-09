@@ -8,7 +8,7 @@ module.exports.setup = (router, uploads, knex) => {
     // 2. define routes
     router.get('/todos', function(req, res) {
 
-        knex.select().table('todos').then(function(data) {
+        knex.select('*').table('todos').orderBy('category', 'desc').then(function(data) {
             res.json(data)
         })
     })

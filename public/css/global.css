@@ -28,8 +28,11 @@ label {
     color: white;
 }
 
-#category-item,
-#dueDate-item {
+/*.color1 {
+    background: red;
+}*/
+
+#category-item {
     background: #CEFF1A;
     color: black;
     padding: 7px;
@@ -38,5 +41,5 @@ label {
 #dueDate-item {
     background: #EDC9FF;
     color: black;
-    padding: 5px;
+    padding: 7px;
 }

@@ -4,11 +4,22 @@ var todoItem = document.querySelector('#todoItem')
 var todoButton = document.querySelector('#todoButton')
 var todoCategory = document.querySelector('#category-list')
 var dueDate = document.querySelector('#dueDate')
+var datePickerUI 
 
 getTodos()
 
 todoItem.addEventListener('keypress', handleKeyPressOnTodoItem)
 todoButton.addEventListener('click', addTodo)
+
+
+datePickerUI = new Pikaday({
+    field: document.getElementById('dueDate'),
+});
+
+
+todosContainer.addEventListener('click', handleClickOnCheckbox)
+
+// functions
 
 function handleKeyPressOnTodoItem(e) {
     if (e.key === 'Enter') {
@@ -16,10 +27,34 @@ function handleKeyPressOnTodoItem(e) {
     }
 }
 
+function handleClickOnCheckbox(e) {
+    if (e.target.type === 'checkbox') {
+        toggleTodoComplete(e.target.getAttribute('data-id'), e.target.checked)
+    }
+}
+
+function toggleTodoComplete(todoId, isComplete) {
+
+    if (isComplete) {
+        fetch('/api/v1/todos/' + todoId + '/complete')
+    }
+    
+    else {
+        fetch('/api/v1/todos/' + todoId + '/incomplete')
+    }
+
+}
+
 function addTodo() {
-    var todoTask = todoItem.value
-    var addCategory = todoCategory.value
-    var addDueDate = dueDate.value
+    var todoTask = todoItem.value.trim()
+    var addCategory = todoCategory.value.trim()
+    var addDueDate = dueDate.value.trim()
+
+    if (todoTask !== '' && addCategory !== '' && addDueDate !== '') {
+
+        todoItem.value = ''
+        todoCategory.value = ''
+        dueDate.value = ''
 
     var body = {
         todo: todoTask,
@@ -37,6 +72,12 @@ function addTodo() {
     })
     .then(res => res.json())
     .then(showTodo)
+
+    }
+
+    else {
+        alert('Requires task, category, and due date for take off!')
+    }
 }
 
 function getTodos() {
@@ -52,10 +93,10 @@ function loopTodos(todos) {
 
 function showTodo(todo) {
     var todoTemplate = `<li class="list-group-item">
-        <input type="checkbox" id="checkbox" value="checkbox">
+        <input type="checkbox" data-id="${todo.id}" />
         ${todo.todo}
             <span class="badge" id="category-item">${todo.category}</span>
-            <span class="badge" id="dueDate-item">${todo.due_date}</span>
+            <span class="badge" id="dueDate-item">${moment(todo.due_date).format('MM/DD/YYYY')}</span>
        
     </li>`
     todosContainer.innerHTML = todoTemplate + todosContainer.innerHTML

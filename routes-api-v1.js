@@ -7,6 +7,7 @@ module.exports.setup = (router, uploads, knex) => {
 
     // 2. define routes
     router.get('/todos', function(req, res) {
+
         knex.select().table('todos').then(function(data) {
             res.json(data)
         })
@@ -18,14 +19,24 @@ module.exports.setup = (router, uploads, knex) => {
         let todo = {
             todo: req.body.todo.trim(),
             completed: req.body.completed ? 'yes' : 'no',
+            category: req.body.category.trim(),
+            due_date: moment(req.body.due_date.trim()).format('YYYY-MM-DD'),
             created_at: now,
-            updated_at: now,
-            category: req.body.category,
-            due_date: req.body.due_date
+            updated_at: now
         }
 
         knex.insert(todo).table('todos').returning('*').then(function(data) {
             res.json(data[0])
+        })
+    })
+
+    router.get('/todos/:todoId/complete', function (req, res) {
+        var update = {
+            completed: 'yes'
+        }
+        
+        knex.update(update).table('todos').where('id', '=', request.params.todoId).then(function(data) {
+            response.json(true)
         })
     })
 

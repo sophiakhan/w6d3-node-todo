@@ -6,19 +6,26 @@ img {
 }
 
 body {
-    background: url(./img/halftone.png);
+    background: url(/img/ep_naturalblack.png);
     font-family: 'Karla', sans-serif;
 }
 
 .header {
-    background: white;
-    border: 10px solid #CEFF1A;
-    border-radius: 5px;
+    color: white;
     margin-top: 20px;
+}
+
+.header > h1 > span {
+    font-weight: bold;
+    color: #CEFF1A;
 }
 
 #todoButton {
     background: #CEFF1A;
+}
+
+label {
+    color: white;
 }
 
 #category-item,

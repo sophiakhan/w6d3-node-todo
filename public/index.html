@@ -1,19 +1,20 @@
 <!doctype html>
 <html>
 <head>
-    <title>TODO</title>
+    <title>TODO:SPACE</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="text/javascript" src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,fetch,Array.prototype.includes"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
-    <link rel="stylesheet" href="/global.css" />
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/pikaday.css" />
+    <link rel="stylesheet" href="css/global.css" />
 </head>
 <body>
     <div class="container">
     <div class="row">
         <div class="col-sm header">
-        <h1 class="text-center">T O D O:</h1>
+        <h1 class="text-center">TODO:<span>SPACE</span></h1>
         </div>
         <hr />
 
@@ -21,25 +22,26 @@
             <div class="input-group">
                 <input id="todoItem" type="text" class="form-control" placeholder="Type a task description...">
                 <span class="input-group-btn">
-                    <button id="todoButton" class="btn btn-default" type="button">Add Task</button>
+                    <button id="todoButton" class="btn btn-default" type="button">Blastoff!</button>
                 </span>
             </div>
         </div>
         <hr/>
         <div class="col-sm-9">
             <div class="form-group">
-                <label for="category-list">Select category:</label>
+                <label for="category-list">*Select category:</label>
                 <select class="form-control" id="category-list">
-                    <option>Work</option>
-                    <option>School</option>
-                    <option>Personal</option>
-                    <option>Cocoa</option>
-                    <option>Misc.</option>
+                    <option>Space Supplies</option>
+                    <option>Mission Control</option>
+                    <option>Engine Check</option>
+                    <option>Take Off</option>
+                    <option>Spaceship Maintenance</option>
+                    <option>Landing</option>
                 </select>
             </div>
         </div>
         <div class="col-sm-3">
-            <label for="dueDate">Due:</label>
+            <label for="dueDate">*Due:</label>
             <input id="dueDate" type="text" class="form-control" placeholder="MM/DD/YYYY">
         </div>
         </div>        
@@ -48,6 +50,9 @@
         </ul>
 
     </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script src="js/pikaday.js"></script>
     <script src="js/todos.js"></script>
 </body>
 </html>

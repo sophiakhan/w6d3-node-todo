@@ -28,18 +28,38 @@ label {
     color: white;
 }
 
-/*.color1 {
-    background: red;
-}*/
+.mission-color {
+    /*background: #EDC9FF;*/
+    background: #F2F3AE;
+}
+
+.supplies-color {
+    background: #09BC8A;
+}
+
+.engine-color {
+    background: #C5D86D;
+}
+
+.takeoff-color {
+    background: #FC9E4F;
+}
+
+.maintenance-color {
+    background: #B26E63;
+}
+
+.landing-color {
+    background: #DD6E42; 
+}
 
 #category-item {
-    background: #CEFF1A;
     color: black;
     padding: 7px;
 }
 
 #dueDate-item {
-    background: #EDC9FF;
+    background: #CEFF1A;;
     color: black;
     padding: 7px;
 }

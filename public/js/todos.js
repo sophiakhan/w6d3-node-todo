@@ -93,38 +93,38 @@ function loopTodos(todos) {
 }
 
 function showTodo(todo) {
-    //var categoryColor = document.querySelector('#category-item')
+    var badgeColor;
+
+    switch(todo.category) {
+        case 'Space Supplies':
+            badgeColor = 'supplies-color';
+            break;
+        case 'Mission Control':
+            badgeColor = 'mission-color';
+            break;
+        case 'Engine Check':
+            badgeColor = 'engine-color';
+            break;
+        case 'Take Off':
+            badgeColor = 'takeoff-color';
+            break;
+        case 'Spaceship Maintenance':
+            badgeColor = 'maintenance-color';
+            break;
+        case 'Landing':
+            badgeColor = 'landing-color';
+            break;
+    }
+
+
     var todoTemplate = `<li class="list-group-item">
-        <input type="checkbox" data-id="${todo.id}" ${todo.complete === 'yes' ? 'checked' : ''} />
+        <input type="checkbox" data-id="${todo.id}" ${todo.completed === 'yes' ? 'checked' : ''} />
         ${todo.todo}
-            <span class="badge" id="category-item">${todo.category}</span>
-            <span class="badge" id="dueDate-item">${moment(todo.due_date).format('MM/DD/YYYY')}</span>
+            <span class="badge category-item ${badgeColor}">${todo.category}</span>
+            <span class="badge dueDate-item">${moment(todo.due_date).format('MM/DD/YYYY')}</span>
        
     </li>`
+
     todosContainer.innerHTML = todoTemplate + todosContainer.innerHTML;
-
-    if (document.querySelector('#category-item').innerHTML === 'Mission Control') {
-        document.querySelector('#category-item').classList.add('mission-color')
-    } 
-
-    else if(document.querySelector('#category-item').innerHTML === 'Space Supplies') {
-        document.querySelector('#category-item').classList.add('supplies-color')
-    }
-    
-    else if(document.querySelector('#category-item').innerHTML === 'Engine Check') {
-        document.querySelector('#category-item').classList.add('engine-color')
-    }
-
-    else if(document.querySelector('#category-item').innerHTML === 'Take Off') {
-        document.querySelector('#category-item').classList.add('takeoff-color')
-    }
-
-    else if(document.querySelector('#category-item').innerHTML === 'Spaceship Maintenance') {
-        document.querySelector('#category-item').classList.add('maintenance-color')
-    }
-
-    else if(document.querySelector('#category-item').innerHTML === 'Landing') {
-        document.querySelector('#category-item').classList.add('landing-color')
-    }
     
 }

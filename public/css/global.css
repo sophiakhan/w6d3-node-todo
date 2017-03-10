@@ -53,13 +53,17 @@ label {
     background: #DD6E42; 
 }
 
-#category-item {
+.category-item {
     color: black;
     padding: 7px;
 }
 
-#dueDate-item {
+.dueDate-item {
     background: #CEFF1A;;
     color: black;
     padding: 7px;
 }
+
+/*,done {
+    text-decoration: line-through;
+}*/

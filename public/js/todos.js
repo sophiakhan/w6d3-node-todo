@@ -36,12 +36,12 @@ function handleClickOnCheckbox(e) {
 function toggleTodoComplete(todoId, isComplete) {
     if (isComplete) {
         fetch('/api/v1/todos/' + todoId + '/complete')
-        .then(res => res.json())
+        .then(getTodos)
     }
     
     else {
         fetch('/api/v1/todos/' + todoId + '/incomplete')
-        .then(res => res.json())
+        .then(getTodos)
     }
 
 }
@@ -119,7 +119,7 @@ function showTodo(todo) {
 
     var todoTemplate = `<li class="list-group-item">
         <input type="checkbox" data-id="${todo.id}" ${todo.completed === 'yes' ? 'checked' : ''} />
-        ${todo.todo}
+        <span class="${todo.completed === 'yes' ? "done" : ''}"> ${todo.todo}</span>
             <span class="badge category-item ${badgeColor}">${todo.category}</span>
             <span class="badge dueDate-item">${moment(todo.due_date).format('MM/DD/YYYY')}</span>
        
